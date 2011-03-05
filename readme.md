@@ -22,7 +22,7 @@ To check the answer in Controller:
  
 You may also get the original error message by
 
-    $error=$recaptcha->errors();
+    $error=$recaptcha->error();
     
 In case you want to use more than one key in your project, you may add your new key as parameter when creating a new object
 
