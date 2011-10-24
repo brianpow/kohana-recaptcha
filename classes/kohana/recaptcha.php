@@ -5,8 +5,8 @@ class Kohana_Recaptcha {
 	public function __construct($config = NULL)
 	{
 		include_once Kohana::find_file('vendor', 'recaptcha/recaptchalib');
-		$this->_config= Kohana::config('recaptcha');
-		
+		$this->_config= Kohana::$config->load('recaptcha');		
+
 		if(is_array($config))
 			$this->_config = Arr::overwrite($this->_config,$config);
 		return $this;
