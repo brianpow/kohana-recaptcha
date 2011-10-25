@@ -1,4 +1,10 @@
-<?php
+<?php defined('SYSPATH') or die('No direct script access.');
+/**
+ * reCAPTCHA module 
+ *
+ * @package    Helper
+ */
+
 class Kohana_Recaptcha {
 	protected $_config;
 	protected $_error = NULL;
@@ -14,9 +20,9 @@ class Kohana_Recaptcha {
 	public function check($answers,$fields=array("recaptcha_challenge_field","recaptcha_response_field"))
 	{
 		$recaptcha_resp = recaptcha_check_answer($this->_config['private_key'],
-													$_SERVER['REMOTE_ADDR'],
-													$answers[$fields[0]],
-													$answers[$fields[1]]);
+									$_SERVER['REMOTE_ADDR'],
+									$answers[$fields[0]],
+									$answers[$fields[1]]);
 
 		$this->_error=$recaptcha_resp->error;
 		return $recaptcha_resp->is_valid;
